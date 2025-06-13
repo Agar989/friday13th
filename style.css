@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(45deg, #0f0f23, #1a1a2e);
+    font-family: 'Press Start 2P', monospace;
+    color: #ff6b6b;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    overflow-x: hidden;
+}
+
+.container {
+    background: linear-gradient(135deg, #16213e, #0f1419);
+    border: 6px solid #ff3333;
+    border-radius: 0;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 
+        0 0 20px #ff3333,
+        inset 0 0 20px rgba(255, 51, 51, 0.1);
+    position: relative;
+    animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 100% { box-shadow: 0 0 20px #ff3333, inset 0 0 20px rgba(255, 51, 51, 0.1); }
+    50% { box-shadow: 0 0 30px #ff3333, inset 0 0 30px rgba(255, 51, 51, 0.2); }
+}
+
+.title {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0px #000;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 2px 2px 0px #000, 0 0 10px #ff3333; }
+    to { text-shadow: 2px 2px 0px #000, 0 0 20px #ff3333; }
+}
+
+.scene {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.masked-figure {
+    width: 120px;
+    height: 160px;
+    background: #333;
+    position: relative;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(5px); }
+}
+
+.mask {
+    width: 40px;
+    height: 50px;
+    background: #fff;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    border: 2px solid #000;
+}
+
+.mask::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #000;
+    top: 15px;
+    left: 8px;
+    box-shadow: 20px 0 #000;
+}
+
+.mask::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 3px;
+    background: #000;
+    bottom: 15px;
+    left: 16px;
+}
+
+.body {
+    width: 60px;
+    height: 100px;
+    background: #444;
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    border: 2px solid #222;
+}
+
+.flowers {
+    width: 80px;
+    height: 100px;
+    position: relative;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.flower {
+    width: 16px;
+    height: 16px;
+    background: #ff69b4;
+    position: absolute;
+    border: 2px solid #000;
+}
+
+.flower:nth-child(1) { top: 20px; left: 10px; background: #ff1493; }
+.flower:nth-child(2) { top: 30px; left: 30px; background: #ff69b4; }
+.flower:nth-child(3) { top: 40px; left: 50px; background: #ffc0cb; }
+.flower:nth-child(4) { top: 50px; left: 20px; background: #ff1493; }
+.flower:nth-child(5) { top: 60px; left: 40px; background: #ff69b4; }
+
+.stem {
+    width: 4px;
+    height: 60px;
+    background: #228b22;
+    position: absolute;
+    bottom: 0;
+    left: 38px;
+    border: 1px solid #006400;
+}
+
+.calendar {
+    background: #fff;
+    border: 4px solid #000;
+    width: 100px;
+    height: 120px;
+    position: relative;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.calendar-header {
+    background: #ff3333;
+    color: #fff;
+    padding: 8px;
+    font-size: 8px;
+    text-align: center;
+    border-bottom: 2px solid #000;
+}
+
+.calendar-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    font-size: 32px;
+    color: #ff3333;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #000;
+}
+
+.hearts-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.hearts-title {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #ff69b4;
+}
+
+.hearts {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.heart {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.heart::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #333;
+    border: 2px solid #666;
+}
+
+.heart.active::before {
+    background: #ff3333;
+    border: 2px solid #ff6666;
+    box-shadow: 0 0 10px #ff3333;
+}
+
+.heart:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+}
+
+.heart.active {
+    animation: collect 0.5s ease-out;
+}
+
+@keyframes collect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5) rotate(10deg); }
+    100% { transform: scale(1); }
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: #00ff00;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #ff3333;
+    text-shadow: 2px 2px 0px #000;
+    display: none;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.pixel-border {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 2px solid #ff3333;
+    pointer-events: none;
+}
+
+.atmospheric-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8px;
+    color: #666;
+    animation: fade 3s ease-in-out infinite;
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .scene {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .title {
+        font-size: 12px;
+    }
+    
+    .calendar-date {
+        font-size: 24px;
+    }
+}
